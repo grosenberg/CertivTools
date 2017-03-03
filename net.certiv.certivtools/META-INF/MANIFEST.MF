@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Certiv Tools
+Bundle-SymbolicName: net.certiv.certivtools;singleton:=true
+Bundle-Version: 1.0.6.qualifier
+Bundle-Activator: net.certiv.certivtools.CertivTools
+Bundle-Vendor: Certiv Analytics
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.framework;version="1.3.0",
+ org.osgi.service.prefs;version="1.1.0",
+ org.osgi.util.tracker;version="1.3.1"
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.11.1",
+ org.eclipse.ui;bundle-version="3.107.0"

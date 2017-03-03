@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="net.certiv.certivtools.prefs.TopLevelPage"
+            id="net.certiv.certivtools.prefs.TopLevelPage"
+            name="Certiv Tools">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="net.certiv.certivtools.prefs.PrefsInit">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Certiv Tools"
+            id="net.certiv.certivtools">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="net.certiv.certivtools.wizards"
+            name="Certiv Tools">
+      </category>
+   </extension>
+
+</plugin>
