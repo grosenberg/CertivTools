@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Certiv Tools
-Bundle-SymbolicName: net.certiv.certivtools;singleton:=true
-Bundle-Version: 1.0.6.qualifier
+Bundle-SymbolicName: net.certiv.tools;singleton:=true
+Bundle-Version: 1.0.7.qualifier
 Bundle-Activator: net.certiv.certivtools.CertivTools
 Bundle-Vendor: Certiv Analytics
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

@@ -3,14 +3,17 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>net.certiv</artifactId>
-		<groupId>net.certiv</groupId>
-		<version>1.0.6-SNAPSHOT</version>
-	</parent>
+
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>net.certiv.certivtools</artifactId>
-	<packaging>eclipse-plugin</packaging>
-	<name>net.certiv :: tools</name>
-	<description>CertivTools top-level prefs page</description>
+	<packaging>eclipse-repository</packaging>
+
+	<parent>
+		<groupId>net.certiv</groupId>
+		<artifactId>net.certiv</artifactId>
+		<version>1.0.7-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>net.certiv.tools.site</artifactId>
+	<name>net.certiv.tools :: site</name>
+
 </project>
