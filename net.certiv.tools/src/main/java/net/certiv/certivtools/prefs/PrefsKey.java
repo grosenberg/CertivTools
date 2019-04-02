@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     Certiv Analytics 
+ *     Certiv Analytics
  *******************************************************************************/
 package net.certiv.certivtools.prefs;
 

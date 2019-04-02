@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="net.certiv.certivtools.prefs.TopLevelPage"
+            class="net.certiv.certivtools.prefs.pages.TopLevelPage"
             id="net.certiv.certivtools.prefs.TopLevelPage"
             name="Certiv Tools">
       </page>

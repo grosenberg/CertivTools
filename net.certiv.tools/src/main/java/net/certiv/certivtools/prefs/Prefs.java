@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     Certiv Analytics 
+ *     Certiv Analytics
  *******************************************************************************/
 package net.certiv.certivtools.prefs;
 
@@ -58,6 +58,6 @@ public class Prefs {
 		if (value instanceof Double) getStore().setValue(key, ((Double) value).doubleValue());
 		if (value instanceof Long) getStore().setValue(key, ((Long) value).longValue());
 		if (value instanceof Float) getStore().setValue(key, ((Float) value).floatValue());
-		if (value instanceof Date) setValue(key, new Long(((Date) value).getTime()));
+		if (value instanceof Date) setValue(key, Long.valueOf(((Date) value).getTime()));
 	}
 }

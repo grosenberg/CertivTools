@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     Certiv Analytics 
+ *     Certiv Analytics
  *******************************************************************************/
 package net.certiv.certivtools;
 
@@ -24,12 +24,14 @@ public class CertivTools extends AbstractUIPlugin {
 		return plugin;
 	}
 
+	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
 		this.context = context;
 	}
 
+	@Override
 	public void stop(BundleContext context) throws Exception {
 		super.stop(context);
 		plugin = null;

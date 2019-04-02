@@ -8,7 +8,7 @@
  * Contributors:
  *     Certiv Analytics 
  *******************************************************************************/
-package net.certiv.certivtools.prefs;
+package net.certiv.certivtools.prefs.pages;
 
 import java.util.Collections;
 import java.util.Dictionary;
