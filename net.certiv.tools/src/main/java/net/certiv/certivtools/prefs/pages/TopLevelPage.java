@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     Certiv Analytics 
+ *     Certiv Analytics
  *******************************************************************************/
 package net.certiv.certivtools.prefs.pages;
 
@@ -45,6 +45,7 @@ public class TopLevelPage extends PreferencePage implements IWorkbenchPreference
 		setDescription("");
 	}
 
+	@Override
 	public void init(IWorkbench workbench) {}
 
 	@Override
