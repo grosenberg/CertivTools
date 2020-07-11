@@ -11,11 +11,13 @@
 package net.certiv.certivtools.prefs.pages;
 
 import java.util.Collections;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import org.osgi.framework.Bundle;
+import org.osgi.framework.Version;
 
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
@@ -27,7 +29,6 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.osgi.framework.Bundle;
 
 import net.certiv.certivtools.CertivTools;
 
@@ -35,7 +36,6 @@ public class TopLevelPage extends PreferencePage implements IWorkbenchPreference
 
 	private static final String Ident = "net.certiv";
 	private static final String Name = "Bundle-Name";
-	private static final String Version = "Bundle-Version";
 
 	private static final int Style = SWT.LEFT | SWT.HORIZONTAL;
 
@@ -60,10 +60,12 @@ public class TopLevelPage extends PreferencePage implements IWorkbenchPreference
 
 		Bundle[] bundles = CertivTools.getDefault().getContext().getBundles();
 		Map<String, String> kvMap = new HashMap<>();
-		for (Bundle b : bundles) {
-			if (b.getSymbolicName().startsWith(Ident)) {
-				Dictionary<String, String> headers = b.getHeaders();
-				kvMap.put(headers.get(Name), b.getSymbolicName() + "_" + headers.get(Version));
+		for (Bundle bundle : bundles) {
+			if (bundle.getSymbolicName().startsWith(Ident)) {
+				String name = bundle.getHeaders().get(Name);
+				String symb = bundle.getSymbolicName();
+				Version ver = bundle.getVersion();
+				kvMap.put(name, String.format("%s_%s.%s.%s", symb, ver.getMajor(), ver.getMinor(), ver.getMicro()));
 			}
 		}
 
