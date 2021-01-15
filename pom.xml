@@ -8,7 +8,7 @@
 
 	<groupId>net.certiv</groupId>
 	<artifactId>net.certiv</artifactId>
-	<version>1.1.0-SNAPSHOT</version>
+	<version>1.2.0-SNAPSHOT</version>
 
 	<name>net.certiv.tools :: parent</name>
 	<description>Certiv Tools parent</description>
@@ -20,9 +20,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<tycho.version>1.7.0</tycho.version>
-		<eclipse-repo.url>http://download.eclipse.org/releases/2020-06</eclipse-repo.url>
+		<java.version>11</java.version>
+		<tycho.version>2.0.0</tycho.version>
+		<eclipse-repo.url>http://download.eclipse.org/releases/2020-09</eclipse-repo.url>
 	</properties>
 
 	<repositories>
