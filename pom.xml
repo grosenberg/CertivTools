@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<groupId>net.certiv</groupId>
-	<artifactId>net.certiv</artifactId>
+	<artifactId>net.certiv.tools.parent</artifactId>
 	<version>1.2.0-SNAPSHOT</version>
 
 	<name>net.certiv.tools :: parent</name>
@@ -16,6 +16,12 @@
 		<name>Certiv Analytics</name>
 		<url>www.certiv.net</url>
 	</organization>
+
+	<modules>
+		<module>net.certiv.tools.plugin</module>
+		<module>net.certiv.tools.feature</module>
+		<module>net.certiv.tools.site</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -54,7 +60,6 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<includePackedArtifacts>true</includePackedArtifacts>
-					<eclipse.p2.mirrors>false</eclipse.p2.mirrors>
 					<dependency-resolution>
 						<optionalDependencies>require</optionalDependencies>
 					</dependency-resolution>
@@ -119,9 +124,4 @@
 		</profile>
 	</profiles>
 
-	<modules>
-		<module>net.certiv.tools</module>
-		<module>net.certiv.tools.feature</module>
-		<module>net.certiv.tools.site</module>
-	</modules>
 </project>

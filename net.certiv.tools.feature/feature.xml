@@ -30,7 +30,7 @@
    </requires>
 
    <plugin
-         id="net.certiv.tools"
+         id="net.certiv.tools.plugin"
          download-size="0"
          install-size="0"
          version="0.0.0"

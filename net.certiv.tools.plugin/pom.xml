@@ -7,13 +7,13 @@
 	<packaging>eclipse-plugin</packaging>
 
 	<parent>
-		<artifactId>net.certiv</artifactId>
 		<groupId>net.certiv</groupId>
+		<artifactId>net.certiv.tools.parent</artifactId>
 		<version>1.2.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>net.certiv.tools</artifactId>
-	<name>net.certiv.tools :: tools</name>
+	<artifactId>net.certiv.tools.plugin</artifactId>
+	<name>net.certiv.tools :: plugin</name>
 	<description>CertivTools top-level prefs page</description>
 
 </project>
