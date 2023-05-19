@@ -2,7 +2,7 @@
 <feature
       id="net.certiv.tools.feature"
       label="Certiv Tools"
-      version="1.2.0.qualifier"
+      version="1.2.1.qualifier"
       provider-name="Certiv Analytics">
 
    <description url="http://www.certiv.net/">

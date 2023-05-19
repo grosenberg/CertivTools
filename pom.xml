@@ -5,84 +5,48 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
-
+	
 	<groupId>net.certiv</groupId>
 	<artifactId>net.certiv.tools.parent</artifactId>
-	<version>1.2.0-SNAPSHOT</version>
-
+	<version>1.2.1-SNAPSHOT</version>
+	
 	<name>net.certiv.tools :: parent</name>
 	<description>Certiv Tools parent</description>
 	<organization>
 		<name>Certiv Analytics</name>
 		<url>www.certiv.net</url>
 	</organization>
-
+	
 	<modules>
 		<module>net.certiv.tools.plugin</module>
 		<module>net.certiv.tools.feature</module>
 		<module>net.certiv.tools.site</module>
 	</modules>
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>11</java.version>
-		<tycho.version>2.0.0</tycho.version>
-		<eclipse-repo.url>http://download.eclipse.org/releases/2021-09</eclipse-repo.url>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<tycho.version>3.0.4</tycho.version>
+		<eclipse.repo.url>http://download.eclipse.org/releases/latest</eclipse.repo.url>
 	</properties>
-
+	
 	<repositories>
 		<repository>
 			<id>eclipse</id>
 			<layout>p2</layout>
-			<url>${eclipse-repo.url}</url>
+			<url>${eclipse.repo.url}</url>
 		</repository>
 	</repositories>
-
+	
 	<build>
 		<plugins>
-
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<extensions>true</extensions>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho.version}</version>
-				<configuration>
-					<includePackedArtifacts>true</includePackedArtifacts>
-					<dependency-resolution>
-						<optionalDependencies>require</optionalDependencies>
-					</dependency-resolution>
-					<environments>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86_64</arch>
-						</environment>
-					</environments>
-				</configuration>
-			</plugin>
-
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-compiler-plugin</artifactId>
@@ -97,31 +61,59 @@
 
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-packaging-plugin</artifactId>
+				<artifactId>tycho-source-plugin</artifactId>
 				<version>${tycho.version}</version>
-				<configuration>
-					<format>yyyyMMdd-HHmm</format>
-					<archive>
-						<addMavenDescriptor>false</addMavenDescriptor>
-					</archive>
-				</configuration>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
 		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-packaging-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<format>yyyyMMdd-HHmm</format>
+						<archive>
+							<addMavenDescriptor>false</addMavenDescriptor>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 	</build>
-
-	<profiles>
-		<profile>
-			<id>macosx</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-			</activation>
-			<properties>
-				<tycho.test.platformArgs>-XstartOnFirstThread</tycho.test.platformArgs>
-			</properties>
-		</profile>
-	</profiles>
-
 </project>
