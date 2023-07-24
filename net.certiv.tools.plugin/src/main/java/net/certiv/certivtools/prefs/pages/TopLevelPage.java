@@ -10,15 +10,6 @@
  *******************************************************************************/
 package net.certiv.certivtools.prefs.pages;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import org.osgi.framework.Bundle;
-import org.osgi.framework.Version;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.preference.PreferencePage;
@@ -26,23 +17,21 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import net.certiv.certivtools.CertivTools;
+import net.certiv.certivtools.prefs.blocks.InstalledBlock;
 
 public class TopLevelPage extends PreferencePage implements IWorkbenchPreferencePage {
 
-	private static final String Ident = "net.certiv";
-	private static final String Name = "Bundle-Name";
-
-	private static final int Style = SWT.LEFT | SWT.HORIZONTAL;
+	private static final String CERTIV_TOOLS = "Certiv Tools";
+	private static final String INSTALLED = "Installed";
 
 	public TopLevelPage() {
 		super();
 		setPreferenceStore(CertivTools.getDefault().getPreferenceStore());
-		setDescription("");
+		setDescription(CERTIV_TOOLS);
 	}
 
 	@Override
@@ -50,38 +39,19 @@ public class TopLevelPage extends PreferencePage implements IWorkbenchPreference
 
 	@Override
 	protected Control createContents(Composite parent) {
-
 		Composite base = new Composite(parent, SWT.NO_FOCUS);
 		GridDataFactory.fillDefaults().grab(true, true).span(2, 1).applyTo(base);
 		GridLayoutFactory.fillDefaults().extendedMargins(0, 6, 6, 0).applyTo(base);
 
-		Group toolsGroup = new Group(base, SWT.NONE);
-		toolsGroup.setText("Installed Tools");
+		Group group = new Group(base, SWT.NONE);
+		group.setText(INSTALLED);
 
-		Bundle[] bundles = CertivTools.getDefault().getContext().getBundles();
-		Map<String, String> kvMap = new HashMap<>();
-		for (Bundle bundle : bundles) {
-			if (bundle.getSymbolicName().startsWith(Ident)) {
-				String name = bundle.getHeaders().get(Name);
-				String symb = bundle.getSymbolicName();
-				Version ver = bundle.getVersion();
-				kvMap.put(name, String.format("%s_%s.%s.%s", symb, ver.getMajor(), ver.getMinor(), ver.getMicro()));
-			}
-		}
+		GridDataFactory.fillDefaults().grab(true, false).span(2, 1).applyTo(group);
+		GridLayoutFactory.fillDefaults().margins(5, 5).applyTo(group);
 
-		List<String> kList = new LinkedList<>(kvMap.keySet());
-		Collections.sort(kList);
-
-		for (String pName : kList) {
-			String pVersion = kvMap.get(pName);
-			Label lbl = new Label(toolsGroup, Style);
-			lbl.setText(pName);
-			lbl = new Label(toolsGroup, Style);
-			lbl.setText("    " + pVersion);
-		}
-
-		GridDataFactory.fillDefaults().grab(true, false).span(2, 1).applyTo(toolsGroup);
-		GridLayoutFactory.fillDefaults().numColumns(2).margins(16, 12).applyTo(toolsGroup);
+		InstalledBlock block = new InstalledBlock();
+		block.createTable(group);
+		block.initialize();
 
 		return parent;
 	}
