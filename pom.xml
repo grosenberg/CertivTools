@@ -28,7 +28,7 @@
 		<jdk.version>17</jdk.version>
 		<maven.compiler.source>${jdk.version}</maven.compiler.source>
 		<maven.compiler.target>${jdk.version}</maven.compiler.target>
-		<tycho.version>3.0.4</tycho.version>
+		<tycho.version>4.0.4</tycho.version>
 		<eclipse.repo.url>http://download.eclipse.org/releases/latest</eclipse.repo.url>
 	</properties>
 
